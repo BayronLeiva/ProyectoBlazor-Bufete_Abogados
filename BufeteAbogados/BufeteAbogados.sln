@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BufeteAbogados", "BufeteAbogados\BufeteAbogados.csproj", "{B9E3EFD2-A23E-4C8F-891E-D98E92B6DCE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.csproj", "{EC2DD5A4-2AB5-4AAF-BF29-29A66E3A7EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{0FBA71A7-3C37-41A5-AFC0-02251AE75338}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9E3EFD2-A23E-4C8F-891E-D98E92B6DCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E3EFD2-A23E-4C8F-891E-D98E92B6DCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E3EFD2-A23E-4C8F-891E-D98E92B6DCE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E3EFD2-A23E-4C8F-891E-D98E92B6DCE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2DD5A4-2AB5-4AAF-BF29-29A66E3A7EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2DD5A4-2AB5-4AAF-BF29-29A66E3A7EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2DD5A4-2AB5-4AAF-BF29-29A66E3A7EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2DD5A4-2AB5-4AAF-BF29-29A66E3A7EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBA71A7-3C37-41A5-AFC0-02251AE75338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBA71A7-3C37-41A5-AFC0-02251AE75338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBA71A7-3C37-41A5-AFC0-02251AE75338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBA71A7-3C37-41A5-AFC0-02251AE75338}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {313BCAAF-CEA0-4889-9C17-8D99AE64750D}
+	EndGlobalSection
+EndGlobal
