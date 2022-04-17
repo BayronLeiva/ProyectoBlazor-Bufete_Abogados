@@ -1,6 +1,7 @@
 using BufeteAbogados.Data;
 using BufeteAbogados.Interfaces;
 using BufeteAbogados.Servicios;
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -14,6 +15,9 @@ builder.Services.AddSingleton<WeatherForecastService>();
 MySqlConfiguration cadenaConexion = new MySqlConfiguration(builder.Configuration.GetConnectionString("MySQL"));
 builder.Services.AddSingleton(cadenaConexion);
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
+builder.Services.AddScoped<IAbogadoServicio, AbogadoServicio>();
+builder.Services.AddScoped<IClienteServicio, ClienteServicio>();
+builder.Services.AddSweetAlert2();
 
 var app = builder.Build();
 

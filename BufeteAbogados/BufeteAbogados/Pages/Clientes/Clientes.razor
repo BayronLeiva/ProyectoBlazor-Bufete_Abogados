@@ -1,0 +1,44 @@
+﻿@page "/Clientes"
+
+<h3>Lista de Clientes</h3>
+
+<div class "form-group row">
+    <div class= "col-sm-2">
+        <a href="/Clientes/Nuevo" class= "btn btn-success">Nuevo Cliente</a>
+    </div>
+</div>
+
+@if (clientesLista == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Telefono</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in clientesLista)
+            {
+                <tr>
+                    <td>@user.Codigo</td>
+                    <td>@user.Nombre</td>
+                    <td>@user.Apellido</td>
+                    <td>@user.Edad</td>
+                    <td>@user.Telefono</td>
+                    <td>
+                        <a class="btn btn-success" href="@($"/Clientes/Editar/{user.Codigo}")">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

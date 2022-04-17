@@ -1,0 +1,72 @@
+﻿@page "/PAbogados/Nuevo"
+
+<h3>Nuevo Abogado</h3>
+<br />
+<EditForm Model="@abog">
+    <DataAnnotationsValidator />
+    <div class="from-group row">
+        <label for="CodigoAbogado" class="col-sm-2 col-from-label">
+            Código Abogado
+        </label>
+        <div class="col-sm-10">
+            <InputText id="CodigoAbogado" class="form-control" placeholder="CodigoAbogado" @bind-Value="abog.CodigoAbogado" />
+            <ValidationMessage For="@(() => abog.CodigoAbogado)" />
+        </div>
+    </div>
+    <div class="from-group row">
+        <label for="Nombre" class="col-sm-2 col-from-label">
+            Nombre
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Nombre" class="form-control" placeholder="Nombre" @bind-Value="abog.Nombre" />
+            <ValidationMessage For="@(() => abog.Nombre)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="Apellido" class="col-sm-2 col-from-label">
+            Apellido
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Apellido" class="form-control" placeholder="Apellido" @bind-Value="abog.Apellido" />
+            <ValidationMessage For="@(() => abog.Apellido)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="Telefono" class="col-sm-2 col-from-label">
+            Telefono
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Telefono" class="form-control" placeholder="Telefono" @bind-Value="abog.Telefono" />
+            <ValidationMessage For="@(() => abog.Telefono)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="Correo" class="col-sm-2 col-from-label">
+            Correo
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Correo" class="form-control" placeholder="Correo" @bind-Value="abog.Correo" />
+            <ValidationMessage For="@(() => abog.Correo)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="EstaActivo" class="col-sm-2 col-from-label">
+            Esta Activo
+        </label>
+        <div class="col-sm-10">
+            <InputCheckbox @bind-Value="abog.EstaActivo" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <p>
+            <input type="submit" class="btn-toolbar btn-primary" value="Guardar" @onclick="Guardar" />
+            <input type="submit" class="btn-toolbar btn-danger" value="Cancelar" @onclick="Cancelar" />
+        </p>
+    </div>
+
+</EditForm>

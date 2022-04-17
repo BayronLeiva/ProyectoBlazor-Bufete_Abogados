@@ -1,0 +1,66 @@
+﻿@page "/Clientes/Editar/{Codigo}"
+
+<EditForm Model="@cliente">
+    <DataAnnotationsValidator />
+    <h3>Editar Cliente</h3>
+    <hr />
+
+    <div class="from-group row">
+        <label for="Codigo" class="col-sm-2 col-from-label">
+            Código
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Codigo" class="form-control" placeholder="Codigo" @bind-Value="cliente.Codigo" />
+            <ValidationMessage For="@(() => cliente.Codigo)" />
+        </div>
+    </div>
+    <div class="from-group row">
+        <label for="Nombre" class="col-sm-2 col-from-label">
+            Nombre
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Nombre" class="form-control" placeholder="Nombre" @bind-Value="cliente.Nombre" />
+            <ValidationMessage For="@(() => cliente.Nombre)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="Apellido" class="col-sm-2 col-from-label">
+            Apellido
+        </label>
+        <div class="col-sm-10">
+            <InputText id="Apellido" class="form-control" placeholder="Apellido" @bind-Value="cliente.Apellido" />
+            <ValidationMessage For="@(() => cliente.Apellido)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="Edad" class="col-sm-2 col-from-label">
+            Edad
+        </label>
+        <div class="col-sm-10">
+            <InputNumber id="Edad" class="form-control" placeholder="Edad" @bind-Value="cliente.Edad" />
+            <ValidationMessage For="@(() => cliente.Edad)" />
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <label for="Telefono" class="col-sm-2 col-from-label">
+            Telefono
+        </label>
+        <div class="col-sm-10">
+            <InputNumber id="Telefono" class="form-control" placeholder="Telefono" @bind-Value="cliente.Telefono" />
+            <ValidationMessage For="@(() => cliente.Telefono)" />
+        </div>
+    </div>
+
+    <hr />
+    <div class="form-group row">
+        <p>
+            <input type="submit" class="btn btn-primary" value="Guardar" @onclick="Guardar" />
+            <input type="submit" class="btn btn-primary" value="Cancelar" @onclick="Cancelar" />
+            <input type="submit" class="btn btn-primary" value="Eliminar" @onclick="Eliminar" />
+        </p>
+    </div>
+
+</EditForm>

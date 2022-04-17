@@ -1,14 +1,14 @@
-﻿@page "/Usuarios"
+﻿@page "/PAbogados"
 
-<h3>Lista de Usuarios</h3>
+<h3>Lista de Abogados</h3>
 
 <div class "form-group row">
     <div class= "col-sm-2">
-        <a href="/Usuarios/Nuevo" class= "btn btn-primary">Nuevo Usuario</a>
+        <a href="/PAbogados/Nuevo" class= "btn btn-primary">Nuevo Abogado</a>
     </div>
 </div>
 
-@if (usuariosLista == null)
+@if (abogadosLista == null)
 {
     <div class="spinner"></div>
 }
@@ -17,22 +17,26 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Codigo</th>
+                <th>Codigo Abogado</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Correo</th>
                 <th>Esta Activo</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var user in usuariosLista)
+            @foreach (var abog in abogadosLista)
             {
                 <tr>
-                    <td>@user.Codigo</td>
-                    <td>@user.Nombre</td>
-                    <td>@user.Apellido</td>
+                    <td>@abog.CodigoAbogado</td>
+                    <td>@abog.Nombre</td>
+                    <td>@abog.Apellido</td>
+                    <td>@abog.Telefono</td>
+                    <td>@abog.Correo</td>
                     <td>
-                        @if (@user.EstaActivo)
+                        @if (@abog.EstaActivo)
                         {
                             <span class="oi oi-circle-check" style="color:green;"></span>
                         }
@@ -42,7 +46,7 @@ else
                         }
                     </td>
                     <td>
-                        <a class="btn btn-success" href="@($"/Usuarios/Editar/{user.Codigo}")">Editar</a>
+                        <a class="btn btn-success" href="@($"/PAbogados/Editar/{abog.CodigoAbogado}")">Editar</a>
                     </td>
                 </tr>
             }

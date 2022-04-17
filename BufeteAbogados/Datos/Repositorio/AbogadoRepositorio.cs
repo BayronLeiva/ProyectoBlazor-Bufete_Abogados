@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace Datos.Repositorio;
 
-public class UsuarioRepositorio : IUsuarioRepositorio
+public class AbogadoRepositorio : IAbogadoRepositorio
 {
+
     private string CadenaConexion;
 
-    public UsuarioRepositorio(string cadenaConexion)
+    public AbogadoRepositorio(string cadenaConexion)
     {
         CadenaConexion = cadenaConexion;
     }
@@ -24,15 +25,15 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         return new MySqlConnection(CadenaConexion);
     }
 
-    public async Task<bool> Actualizar(Usuario usuario)
+    public async Task<bool> Actualizar(Abogados abogado)
     {
         int resultado;
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "UPDATE usuarios SET Codigo = @Codigo, Clave = @Clave, Nombre = @Nombre, Apellido = @Apellido, EstaActivo = @EstaActivo WHERE Codigo = @Codigo;";
-            resultado = await conexion.ExecuteAsync(sql, new { usuario.Codigo, usuario.Clave, usuario.Nombre, usuario.Apellido, usuario.EstaActivo });
+            string sql = "UPDATE abogados SET CodigoAbogado = @CodigoAbogado, Nombre = @Nombre, Apellido = @Apellido, Telefono = @Telefono, Correo = @Correo, EstaActivo = @EstaActivo WHERE CodigoAbogado = @CodigoAbogado;";
+            resultado = await conexion.ExecuteAsync(sql, new { abogado.CodigoAbogado, abogado.Nombre, abogado.Apellido, abogado.Telefono, abogado.Correo, abogado.EstaActivo });
 
             return resultado > 0;
         }
@@ -42,7 +43,7 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         }
     }
 
-    public async Task<bool> Eliminar(Usuario usuario)
+    public async Task<bool> Eliminar(Abogados abogado)
     {
         int resultado;
 
@@ -50,8 +51,8 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "DELETE FROM usuarios WHERE Codigo = @Codigo;";
-            resultado = await conexion.ExecuteAsync(sql, new { usuario.Codigo });
+            string sql = "DELETE FROM abogados WHERE CodigoAbogado = @CodigoAbogado;";
+            resultado = await conexion.ExecuteAsync(sql, new { abogado.CodigoAbogado });
 
             return resultado > 0;
         }
@@ -61,16 +62,16 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         }
     }
 
-    public async Task<IEnumerable<Usuario>> GetLista()
+    public async Task<IEnumerable<Abogados>> GetLista()
     {
-        IEnumerable<Usuario> lista = new List<Usuario>();
+        IEnumerable<Abogados> lista = new List<Abogados>();
 
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "SELECT * FROM usuarios;";
-            lista = await conexion.QueryAsync<Usuario>(sql);
+            string sql = "SELECT * FROM abogados;";
+            lista = await conexion.QueryAsync<Abogados>(sql);
         }
         catch (Exception)
         {
@@ -78,24 +79,24 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         return lista;
     }
 
-    public async Task<Usuario> GetPorCodigo(string codigo)
+    public async Task<Abogados> GetPorCodigo(string codigo)
     {
-        Usuario user = new Usuario();
+        Abogados abog = new Abogados();
 
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "SELECT * FROM usuarios WHERE Codigo = @Codigo;";
-            user = await conexion.QueryFirstAsync<Usuario>(sql, new { codigo });
+            string sql = "SELECT * FROM abogados WHERE CodigoAbogado = CodigoAbogado;";
+            abog = await conexion.QueryFirstAsync<Abogados>(sql, new { codigo });
         }
         catch (Exception)
         {
         }
-        return user;
+        return abog;
     }
 
-    public async Task<bool> Nuevo(Usuario usuario)
+    public async Task<bool> Nuevo(Abogados abogado)
     {
         int resultado;
 
@@ -103,8 +104,8 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "INSERT INTO usuarios (Codigo, Clave, Nombre, Apellido, EstaActivo) VALUES(@Codigo, @Clave, @Nombre, @Apellido, @EstaActivo);";
-            resultado = await conexion.ExecuteAsync(sql, usuario);
+            string sql = "INSERT INTO abogados (CodigoAbogado, Nombre, Apellido, Telefono, Correo, EstaActivo) VALUES (@CodigoAbogado, @Nombre, @Apellido, @Telefono, @Correo, @EstaActivo);";
+            resultado = await conexion.ExecuteAsync(sql, abogado);
             return resultado > 0;
         }
         catch (Exception)
