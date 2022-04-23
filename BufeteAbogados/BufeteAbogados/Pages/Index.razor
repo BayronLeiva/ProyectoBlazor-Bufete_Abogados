@@ -4,19 +4,43 @@
 
 <h1>Bufete de Abogados</h1>
 
-Bienvenido a la aplicación administrativa para el bufete de abogados.
-<br />
-<br />
-<table class="table">
-        <thead>
-            <tr>
-                <th>IMPORTANTE</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-           <td>Para tener acceso a todos nuestros componentes para administración de clientes, abogados y usuarios administrativos, recuerda siempre iniciar sesión</td>
-        </tbody>
-    </table>
-<br />
-<br />
+
+<AuthorizeView>
+    <Authorized Context="AuthenticationState">
+        <br />
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Hola de nuevo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <td>Bienvenido a la aplicación administrativa para el bufete de abogados.</td>
+            </tbody>
+        </table>
+        <br />
+        <br />
+    </Authorized>
+</AuthorizeView>
+
+<AuthorizeView>
+    <NotAuthorized>
+        <br />
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>IMPORTANTE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <td>Para tener acceso a todos nuestros componentes para administración de clientes, abogados y usuarios administrativos, recuerda siempre iniciar sesión</td>
+            </tbody>
+        </table>
+        <br />
+        <br />
+    </NotAuthorized>
+</AuthorizeView>

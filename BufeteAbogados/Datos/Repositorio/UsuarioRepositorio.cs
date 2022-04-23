@@ -112,4 +112,20 @@ public class UsuarioRepositorio : IUsuarioRepositorio
             return false;
         }
     }
+
+    public async Task<bool> ValidarUsuario(Login login)
+    {
+        bool valido = false;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "SELECT 1 FROM usuarios WHERE Codigo = Codigo AND Clave = Clave;";
+            valido = await conexion.ExecuteScalarAsync<bool>(sql, new { login.Codigo, login.Clave });
+        }
+        catch (Exception)
+        {
+        }
+        return valido;
+    }
 }
