@@ -17,6 +17,7 @@ builder.Services.AddSingleton(cadenaConexion);
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 builder.Services.AddScoped<IAbogadoServicio, AbogadoServicio>();
 builder.Services.AddScoped<IClienteServicio, ClienteServicio>();
+builder.Services.AddScoped<ICitasServicio, CitasServicio>();
 builder.Services.AddSweetAlert2();
 
 var app = builder.Build();
