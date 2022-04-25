@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modelos;
 
-public class Citas
+public class Cita
 {
     public string CodigoCliente { get; set; }
     public string CodigoAbogado { get; set; }

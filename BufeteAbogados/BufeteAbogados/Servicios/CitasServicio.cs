@@ -17,17 +17,27 @@ public class CitasServicio : ICitasServicio
         citasRepositorio = new CitasRepositorio(configuration.CadenaConexion);
     }
 
-    public async Task<bool> Eliminar(Citas citas)
+    public async Task<bool> Eliminar(Cita citas)
     {
         return await citasRepositorio.Eliminar(citas);
     }
 
-    public async Task<IEnumerable<Citas>> GetLista()
+    public async Task<IEnumerable<Cita>> GetLista()
     {
         return await citasRepositorio.GetLista();
     }
 
-    public async Task<Citas> GetPorCodigo(string codigo)
+    public async Task<IEnumerable<Abogados>> GetListaA()
+    {
+        return await citasRepositorio.GetListaA();
+    }
+
+    public async Task<IEnumerable<Cliente>> GetListaC()
+    {
+        return await citasRepositorio.GetListaC();
+    }
+
+    public async Task<Cita> GetPorCodigo(string codigo)
     {
         return await citasRepositorio.GetPorCodigo(codigo);
     }
@@ -42,7 +52,7 @@ public class CitasServicio : ICitasServicio
         return await citasRepositorio.GetPorCodigoClientes(codigo);
     }
 
-    public async Task<bool> Nuevo(Citas citas)
+    public async Task<bool> Nuevo(Cita citas)
     {
         return await citasRepositorio.Nuevo(citas);
     }

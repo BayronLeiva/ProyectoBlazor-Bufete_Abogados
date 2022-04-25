@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Modelos\Modelos.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Citas\" />
-  </ItemGroup>
-
 </Project>

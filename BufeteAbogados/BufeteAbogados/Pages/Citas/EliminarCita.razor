@@ -1,0 +1,19 @@
+﻿@page "/Citas/Eliminar"
+
+<EditForm Model="@cit">
+    <DataAnnotationsValidator />
+    <h3>Eliminar Cita</h3>
+    <hr />
+    <h3>¿Está seguro que desea eliminar los registros de citas?</h3>
+
+    <div class="form-group row">
+        <p>
+            <hr />
+            <input type="submit" class="btn-toolbar btn-warning" value="Eliminar" @onclick="Eliminar" />
+            <hr />
+            <input type="submit" class="btn-toolbar btn-danger" value="Cancelar" @onclick="Cancelar" />
+            <hr />
+        </p>
+    </div>
+
+</EditForm>

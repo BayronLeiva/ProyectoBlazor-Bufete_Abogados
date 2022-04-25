@@ -1,0 +1,50 @@
+﻿@page "/Citas"
+
+<h3>Listado de citas</h3>
+
+<div class "form-group row">
+    <div class="col-sm-2">
+        <a href="/Citas/Nuevo" class="btn btn-primary">Nueva Cita</a>
+    </div>
+</div>
+
+@if (citaLista == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo Cliente</th>
+                <th>Codigo Abogado</th>
+                <th>Codigo Cita</th>
+                <th>Fecha</th>
+                <th>Descripcion</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cit in citaLista)
+            {
+                <tr>
+                    <td>@cit.CodigoCliente</td>
+                    <td>@cit.CodigoAbogado</td>
+                    <td>@cit.CodigoCita</td>
+                    <td>@cit.Fecha</td>
+                    <td>@cit.Descripcion</td>
+                </tr>
+            }
+        <div class "form-group row">
+            <div class="col-sm-2">
+                <a href="/Citas/Eliminar" class="btn btn-success">Limpiar lista</a>
+            </div>
+        </div>
+        </tbody>
+    </table>
+}
+
+
+
+

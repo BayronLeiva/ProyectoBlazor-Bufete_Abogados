@@ -20,7 +20,7 @@ public class CitasRepositorio : ICitasRepositorio
         return new MySqlConnection(CadenaConexion);
     }
 
-    public async Task<bool> Eliminar(Citas citas)
+    public async Task<bool> Eliminar(Cita citas)
     {
         int resultado;
 
@@ -28,7 +28,7 @@ public class CitasRepositorio : ICitasRepositorio
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "DELETE FROM citas WHERE CodigoCita = @CodigoCita;";
+            string sql = "DELETE FROM citas WHERE CodigoCita = CodigoCita;";
             resultado = await conexion.ExecuteAsync(sql, new { citas.CodigoCita });
 
             return resultado > 0;
@@ -39,16 +39,16 @@ public class CitasRepositorio : ICitasRepositorio
         }
     }
 
-    public async Task<IEnumerable<Citas>> GetLista()
+    public async Task<IEnumerable<Cita>> GetLista()
     {
-        IEnumerable<Citas> lista = new List<Citas>();
+        IEnumerable<Cita> lista = new List<Cita>();
 
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
             string sql = "SELECT * FROM citas;";
-            lista = await conexion.QueryAsync<Citas>(sql);
+            lista = await conexion.QueryAsync<Cita>(sql);
         }
         catch (Exception)
         {
@@ -56,16 +56,16 @@ public class CitasRepositorio : ICitasRepositorio
         return lista;
     }
 
-    public async Task<Citas> GetPorCodigo(string codigo)
+    public async Task<Cita> GetPorCodigo(string codigo)
     {
-        Citas cita = new Citas();
+        Cita cita = new Cita();
 
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
             string sql = "SELECT * FROM citas WHERE CodigoCita = @CodigoCita;";
-            cita = await conexion.QueryFirstAsync<Citas>(sql, new { codigo });
+            cita = await conexion.QueryFirstAsync<Cita>(sql, new { codigo });
         }
         catch (Exception)
         {
@@ -107,7 +107,7 @@ public class CitasRepositorio : ICitasRepositorio
         return cliente;
     }
 
-    public async Task<bool> Nuevo(Citas citas)
+    public async Task<bool> Nuevo(Cita citas)
     {
         int resultado;
 
@@ -115,7 +115,7 @@ public class CitasRepositorio : ICitasRepositorio
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "INSERT INTO citas (CodigoCliente, CodigoAbogado, CodigoCita, Fecha, Descripcion) VALUES(@CodigoCliente, @CodigoAbogado, @CodigoCita, @Fecha, @Descripcion);";
+            string sql = "INSERT INTO citas (CodigoCliente, CodigoAbogado, CodigoCita, Fecha, Descripcion) VALUES (@CodigoCliente, @CodigoAbogado, @CodigoCita, @Fecha, @Descripcion);";
             resultado = await conexion.ExecuteAsync(sql, citas);
             return resultado > 0;
         }
@@ -123,5 +123,39 @@ public class CitasRepositorio : ICitasRepositorio
         {
             return false;
         }
+    }
+
+    public async Task<IEnumerable<Cliente>> GetListaC()
+    {
+        IEnumerable<Cliente> lista = new List<Cliente>();
+
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "SELECT * FROM clientes;";
+            lista = await conexion.QueryAsync<Cliente>(sql);
+        }
+        catch (Exception)
+        {
+        }
+        return lista;
+    }
+
+    public async Task<IEnumerable<Abogados>> GetListaA()
+    {
+        IEnumerable<Abogados> lista = new List<Abogados>();
+
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "SELECT * FROM abogados;";
+            lista = await conexion.QueryAsync<Abogados>(sql);
+        }
+        catch (Exception)
+        {
+        }
+        return lista;
     }
 }
