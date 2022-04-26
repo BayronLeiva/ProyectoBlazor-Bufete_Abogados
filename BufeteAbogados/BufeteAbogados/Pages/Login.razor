@@ -7,21 +7,21 @@
 
 @if (ErrorMessage != null)
 {
-    <div class ="text-danger">@ErrorMessage</div>
+    <div class="text-danger">@ErrorMessage</div>
 }
 
-<form method = "post" action = "/account/login">
-    <div class = "form-group">
+<form method="post" action="/account/login">
+    <div class="form-group">
         <label>Usuario: </label>
-        <input type = "text" name = "Codigo" class="form-control col-sm-6 col-md-4" />
+        <input type="text" name="Codigo" class="form-control col-sm-6 col-md-4" />
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <label>Clave: </label>
-        <input type = "password" name = "Clave" class="form-control col-sm-6 col-md-4" />
+        <input type="password" name="Clave" class="form-control col-sm-6 col-md-4" />
     </div>
     <br />
-    <button class= "btn btn-primary">Entrar</button>
+    <button class="btn btn-primary">Entrar</button>
 </form>
 
 @code {
